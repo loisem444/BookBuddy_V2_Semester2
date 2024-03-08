@@ -1,36 +1,42 @@
-// LoginScreen.tsx
-import React, { useState } from 'react';
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  Text,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
-import { setIsLoggedIn } from '../utils/auth';
+import React, { useState, useEffect } from 'react';
+import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, KeyboardAvoidingView, Platform } from 'react-native';
+import auth from '@react-native-firebase/auth';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(user => {
+      setUser(user);
+    });
+
+    return unsubscribe; // unsubscribe on unmount
+  }, []);
 
   const handleLogin = async () => {
-    // TODO: Implement real authentication logic here
-    if (email === 'test@example.com' && password === 'password123') {
-        await setIsLoggedIn(true);
-        navigation.replace('HomeTabs');
-    } else {
-     // Handle login error, show an alert or set an error state
-     alert('Invalid credentials');
+    try {
+      const userCredential = await auth().signInWithEmailAndPassword(email, password);
+      console.log('User logged in successfully!', userCredential.user);
+      navigation.replace('HomeTabs');
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('Invalid credentials');
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await auth().signOut();
+      console.log('User logged out successfully!');
+    } catch (error) {
+      console.error('Logout failed:', error);
     }
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
       <View style={styles.loginContainer}>
         <Image source={require('../../assets/applogo.png')} style={styles.logo} />
         <Text style={styles.appName}>Welcome to BookBuddy</Text>
@@ -58,6 +64,11 @@ const LoginScreen = ({ navigation }) => {
             Don't have an account? <Text style={styles.signUp}>Sign Up</Text>
           </Text>
         </TouchableOpacity>
+        {user && (
+          <TouchableOpacity style={styles.button} onPress={handleLogout}>
+            <Text style={styles.buttonText}>Logout</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </KeyboardAvoidingView>
   );
