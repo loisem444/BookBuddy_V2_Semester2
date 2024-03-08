@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet, Text, Alert } from 'react-native';
-
-import { setIsLoggedIn } from '../utils/auth';
+import auth from '@react-native-firebase/auth'; // Import Firebase Auth module
 
 const CreateAccountScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUp = async () => {
-    if (email.trim() && password.trim()) {
-        await setIsLoggedIn(true);
-        navigation.replace('HomeTabs');
-    } else {
-      Alert.alert('Error', 'Email and password cannot be blank.');
+    try {
+      const userCredential = await auth().createUserWithEmailAndPassword(email, password);
+      console.log('User account created!', userCredential.user);
+      navigation.replace('HomeTabs');
+    } catch (error) {
+      console.error('Sign up failed:', error);
+      Alert.alert('Error', 'Sign up failed. Please try again.');
     }
   };
 
