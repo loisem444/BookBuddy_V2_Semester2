@@ -14,6 +14,7 @@
 		69896768DC7A52280AAA789E /* Pods_BookBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC03123633C8B33C91597DD0 /* Pods_BookBuddy.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		98969E0EEFABAF0D914EBA66 /* Pods_BookBuddy_BookBuddyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11372883E9568B99D79B5AC9 /* Pods_BookBuddy_BookBuddyTests.framework */; };
+		E3EF1E712B9B57A90096CCEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3EF1E702B9B57A90096CCEF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		5B7EB9410499542E8C5724F5 /* Pods-BookBuddy-BookBuddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBuddy-BookBuddyTests.debug.xcconfig"; path = "Target Support Files/Pods-BookBuddy-BookBuddyTests/Pods-BookBuddy-BookBuddyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BookBuddy/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BookBuddy-BookBuddyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBuddy-BookBuddyTests.release.xcconfig"; path = "Target Support Files/Pods-BookBuddy-BookBuddyTests/Pods-BookBuddy-BookBuddyTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3EF1E702B9B57A90096CCEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC03123633C8B33C91597DD0 /* Pods_BookBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E3EF1E702B9B57A90096CCEF /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* BookBuddy */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BookBuddyTests */,
@@ -244,6 +247,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E3EF1E712B9B57A90096CCEF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
