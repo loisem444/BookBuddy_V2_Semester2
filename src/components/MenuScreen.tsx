@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, TouchableOpacity, View, StatusBar } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from '../../App';
